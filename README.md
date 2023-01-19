@@ -1,4 +1,9 @@
 # SEM:ANTICS
+
+**Live Site:** https://semantics.onrender.com/
+
+**DevPost:** https://devpost.com/software/pro-fessional
+
 ## Inspiration ✨
 **_"You have to learn to write like a man._"** As women who are recently starting out our professional careers, we have found that communicating and networking through emails can be difficult, and receiving feedback is very important when we are still learning to interact in a professional  manner. That's why we built SEM:ANTICS, to help people identify their writing weaknesses. This way, users are able to create positive impressions & maintain professional relationships.
 
