@@ -11,7 +11,7 @@ function Home() {
         <h1 style={{ fontSize: "5rem" }} className="text-center text-black">
           SEM:ANTICS
         </h1>
-        <p style={{ width: 500 }}>Why should women email like men? The onus is on the individual, when the problem is societal. A tool to train email writing that creates positive impressions & maintains professional relationships.</p>
+        <p style={{ width: 500 }}>SEM:ANTICS is a comprehensive platform that allows users to edit emails, store their past emails, and give advice for students, managers, and employees to effectively learn to communicate to a professional standard.</p>
         <Link to='/playground' className="btn btn-primary align-self-start">Try It Out</Link>
       </div>
     </>
