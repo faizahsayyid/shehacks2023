@@ -52,19 +52,19 @@ function Header() {
                 Past Drafts
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className={clsx("nav-link", pathname === "/learn" && "active")}
                 to="/learn"
               >
                 Learn
               </Link>
-            </li>
+            </li> */}
           </ul>
 
-          {!showHamburgerMenu && (
+          {/* {!showHamburgerMenu && (
             <div className="text-light">Overall Score: 99%</div>
-          )}
+          )} */}
         </div>
       </div>
     </nav>
