@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import clsx from "clsx";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { clearTokensCache } from "../utils/authUtils";
 
 function Header() {
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const showLogoutBtn = useMemo(() => {
+    return pathname !== '/login' && pathname !== '/register'
+  }, [pathname])
+
+  const logout = () => {
+    clearTokensCache();
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -60,11 +72,20 @@ function Header() {
                 Learn
               </Link>
             </li> */}
+            {showHamburgerMenu && showLogoutBtn && (
+              <li className="nav-item">
+                <button onClick={logout} className="btn nav-link text-light">
+                  Log Out
+                </button>
+              </li>
+            )}
           </ul>
 
-          {/* {!showHamburgerMenu && (
-            <div className="text-light">Overall Score: 99%</div>
-          )} */}
+          {!showHamburgerMenu && showLogoutBtn && (
+            <button onClick={logout} className="btn nav-link text-light">
+              Log Out
+            </button>
+          )}
         </div>
       </div>
     </nav>

@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { RiErrorWarningLine } from "react-icons/ri";
 import Spinner from "../components/Spinner/Spinner";
 import Draft from "../components/Draft";
-
-const apiUrl = import.meta.env.VITE_API_URL;
+import { postDraft } from "../api/drafts";
+import { useNavigate } from "react-router-dom";
 
 function Playground() {
   const [draftBody, setDraftBody] = useState("");
@@ -12,17 +11,20 @@ function Playground() {
   const [classifications, setClassifications] = useState();
   const [score, setScore] = useState();
 
+  const navigate = useNavigate();
+
   const onSubmit = () => {
     setLoading(true)
-    axios
-      .post(`${apiUrl}/draft`, {
-        content: [draftBody],
-      })
+    postDraft(draftBody)
       .then((res) => {
-          setClassifications(res.data.classification.body.classifications);
-          setScore(res.data.score)
-          setDraftBody("")
-          setLoading(false)
+          if (res.status == 200) {
+            setClassifications(res.data.classifications);
+            setScore(res.data.score)
+            setDraftBody("")
+            setLoading(false)
+          } else {
+            navigate('/login')
+          }
       })
   };
 
